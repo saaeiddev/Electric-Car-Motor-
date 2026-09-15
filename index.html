@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#05070b" />
+  <meta name="description" content="مدل سه‌بعدی تعاملی موتور برقی خودرو با نمایش اجزا، انیمیشن و توضیح فارسی عملکرد هر بخش" />
+  <title>Electric Car Motor | آزمایشگاه سه‌بعدی موتور برقی</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <div id="scene-wrap" aria-label="نمای سه‌بعدی تعاملی موتور برقی"></div>
+
+    <header class="topbar glass">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <h1>موتور برقی خودرو</h1>
+          <p>آزمایشگاه تعاملی سه‌بعدی • PMSM / IPM</p>
+        </div>
+      </div>
+      <div class="status-row">
+        <span class="status-dot"></span>
+        <span id="rpm-readout">۰ RPM</span>
+        <span class="divider"></span>
+        <span id="mode-readout">حالت آموزشی</span>
+      </div>
+    </header>
+
+    <aside class="info-panel glass" id="info-panel" aria-live="polite">
+      <div class="eyebrow">جزء انتخاب‌شده</div>
+      <div class="info-title-row">
+        <div class="part-icon" id="part-icon">⚡</div>
+        <div>
+          <h2 id="part-title">موتور برقی</h2>
+          <p id="part-en">Electric Traction Motor</p>
+        </div>
+      </div>
+      <p class="part-desc" id="part-desc">روی هر بخش از مدل کلیک کنید تا وظیفه، نحوه عملکرد و ارتباط آن با سایر اجزای موتور نمایش داده شود.</p>
+      <div class="specs" id="part-specs">
+        <div><span>نوع</span><strong>سنکرون مغناطیس دائم</strong></div>
+        <div><span>کاربرد</span><strong>تولید گشتاور محرک</strong></div>
+      </div>
+      <button class="focus-btn" id="focus-btn">تمرکز دوربین روی قطعه</button>
+    </aside>
+
+    <section class="parts-panel glass" aria-label="فهرست اجزای موتور">
+      <div class="panel-head">
+        <div>
+          <div class="eyebrow">نمای انفجاری</div>
+          <h3>اجزای موتور</h3>
+        </div>
+        <span class="count" id="parts-count">۱۲ جزء</span>
+      </div>
+      <div class="parts-list" id="parts-list"></div>
+    </section>
+
+    <nav class="control-dock glass" aria-label="کنترل‌های مدل سه‌بعدی">
+      <button class="control active" id="run-btn" aria-pressed="true" title="روشن/خاموش کردن موتور">
+        <span class="ico">▶</span><small>حرکت</small>
+      </button>
+      <button class="control" id="explode-btn" aria-pressed="false" title="نمای انفجاری">
+        <span class="ico">✦</span><small>بازکردن</small>
+      </button>
+      <button class="control active" id="labels-btn" aria-pressed="true" title="نمایش برچسب قطعات">
+        <span class="ico">Aa</span><small>برچسب</small>
+      </button>
+      <button class="control" id="reset-btn" title="بازنشانی دوربین">
+        <span class="ico">↺</span><small>ریست</small>
+      </button>
+      <div class="speed-control">
+        <label for="speed-slider">سرعت موتور</label>
+        <input id="speed-slider" type="range" min="0" max="100" value="45" aria-label="سرعت چرخش موتور" />
+      </div>
+    </nav>
+
+    <div class="hint glass" id="hint">
+      <span class="mouse">◉</span>
+      <span>درگ: چرخش مدل</span>
+      <span>اسکرول: زوم</span>
+      <span>کلیک: انتخاب قطعه</span>
+    </div>
+
+    <div class="loading" id="loading">
+      <div class="loader-ring"></div>
+      <strong>در حال آماده‌سازی موتور سه‌بعدی…</strong>
+      <span>ساخت اجزا و مواد PBR</span>
+    </div>
+  </div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
